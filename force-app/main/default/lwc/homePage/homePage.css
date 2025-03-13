@@ -1,0 +1,5 @@
+@import "c/sharedCss";
+
+.groupContainer {
+    margin: 0 24px;
+}

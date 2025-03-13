@@ -1,0 +1,9 @@
+<template>
+    <c-header tmdb-api-key={tmdbApiKey}></c-header>
+    <c-banner tmdb-api-key={tmdbApiKey}></c-banner>
+    <div class="groupContainer">
+        <c-group-set group-title="Popular Movies" tmdb-api-key={tmdbApiKey} genre-number="popular"></c-group-set>
+        <c-group-set group-title="Action" tmdb-api-key={tmdbApiKey} genre-number="28"></c-group-set>
+        <c-group-set group-title="Animation" tmdb-api-key={tmdbApiKey} genre-number="16"></c-group-set>
+    </div>
+</template>

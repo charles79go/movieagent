@@ -1,0 +1,50 @@
+@import "c/sharedCss";
+
+.mainImageBanner {
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: .5;
+        background-color: var(--blue);
+        z-index: 2;
+    }
+
+    .image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        object-fit: cover;
+        object-position: center;
+        filter: grayscale(100%);
+    }
+
+    .mainImageBanner span {
+        z-index: 3;
+        position: relative;
+        color: #FFF;
+        font-size: 48px;
+        font-weight: 700;
+        margin: 0 16px;
+        text-wrap: wrap;
+        text-align: center;
+    }
+
+@media (width < 540px) {
+    .mainImageBanner span {
+        font-size: 32px;
+    }
+}
+

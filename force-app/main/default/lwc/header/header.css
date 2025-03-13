@@ -13,7 +13,7 @@
     height: 32px;
     padding: 4px 8px;
     width: fit-content;
-    margin-left: 48px;
+    margin-left: 24px;
     background: var(--yellow);
     border-radius: 2px;
     display: flex;
@@ -26,7 +26,7 @@
 
 .searchContainer {
     width: 300px;
-    margin-right: 48px;
+    margin-right: 24px;
     position: relative;
     top: -4px;
 }
