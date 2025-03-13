@@ -1,0 +1,422 @@
+/* theme css */
+:host {
+
+    --bold: 700;
+
+    --greenD1: #199347;
+    --green: #25D366;
+    --greenL2: #66e093;
+    
+    --amberD1: #cc7a00;
+    --amber:  #FF9900;
+    --amberL1: #ffad32;
+
+    --yellow: #F5C518;
+
+    --blueD1: #346ac3;
+    --blue: #4285F4;
+    --blueL1: #679df6;
+
+    --redD1: #ad2419;
+    --red: #D92D20;
+    --redL1: #e0564c;
+
+    --textPrimaryColor: #101828;
+    --textSecondaryColor: #667085;
+    --textLinkColor: var(--blue);
+
+    --themePrimaryColorD1: var(--amberD1); 
+    --themePrimaryColor: var(--amber); 
+    --themePrimaryColorL1: var(--amberL1); 
+
+
+    --textSizeL1: 18px;
+    --textPrimarySize: 14px;
+    --textSecondarySize: 12px;
+
+    --bgPrimaryColor: #FFFFFF;
+    --bgGray: #f3f3f3;
+
+    --hoverColorGrey: #F2F4F7;
+    --hoverTextLinkColor: var(--blueL1);
+
+    --borderColor: #EAECF0;
+    --borderColorD1: var(--textSecondaryColor);
+    --borderColorD2: var(--textPrimaryColor);
+
+    --boxShadow: 0px 1px 2px 0px #1018280D;
+
+    --border: 1px solid var(--borderColor);
+    --borderD1: 1px solid var(--borderColorD1);
+    
+    --overlayOpacity: 0.2;
+
+    --marginPrimary: 24px;
+
+    --paddingCardB1: 32px;
+    --paddingCard: 24px;
+
+    --borderRadiusStandard: 5px;
+    --borderRadiusSmall: 3px;
+
+
+
+    --infoErrorColor: var(--red);
+    --infoApproveColor: var(--green);
+    --infoWarningColor: var(--amber);
+
+    --transitionStd: all .1s linear;
+
+    --breakPointMobile: 800px;
+
+
+    /* override salesforce utility classes */
+    --sds-c-button-brand-text-color: white;
+}
+
+/* reset */
+* {
+    box-sizing: border-box;
+}
+
+
+/* common components */
+/* buttons, cards, pills, toast messages */
+
+/* ===================== */
+/* 
+    <button class="btn">Search</button> 
+*/
+.btn,
+.btnSecondary,
+.btnDestructive,
+.btnWarning {
+    background: var(--themePrimaryColor);
+    padding: 2px 12px;
+    height: fit-content;
+    cursor: pointer;
+    color: #FFF;
+    border-radius: var(--borderRadiusSmall);
+    transition: var(--transitionStd);
+    height: fit-content;
+    border: 1px solid var(--themePrimaryColor);
+    outline: none;
+    display: inline-block;
+}
+.btn:hover {
+    background: var(--themePrimaryColorL1);
+    border: 1px solid var(--themePrimaryColorL1);
+}
+
+
+/* 
+    this secondary button class will behave the same way as 
+    lightning button - outline brand variant with the lightningBtnSecondary class 
+*/
+.btnSecondary {
+    background: #FFF;
+    color: var(--themePrimaryColor);
+}
+
+.btnSecondrayWithIcon {
+    padding: 2px 12px 2px 7px;
+}
+
+    .btnSecondrayWithIcon .btnLabel {
+        font-weight: 400;
+        margin-left: 8px;
+        font-size: 14px;
+    }
+
+.btnSecondary:hover {
+    color: var(--themePrimaryColorL1);
+    border: 1px solid var(--themePrimaryColorL1);
+    background: var(--hoverTextLinkColor);
+}
+
+
+/* 
+    destructive button
+
+*/
+
+.btnDestructive {
+    background: #FFF;
+    color: var(--red);
+    border: 1px solid var(--red);
+}
+
+.btnDestructive:hover {
+    color: var(--redD1);
+    border: 1px solid var(--redD1);
+    background: var(--redL1);
+}
+
+/* 
+    warning button
+
+*/
+
+.btnWarning {
+    background: #FFF;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+}
+
+.btnWarning:hover {
+    color: var(--redD1);
+    border: 1px solid var(--amberD1);
+    background: var(--amberL1);
+}
+
+
+/* secondary lightning buttons should get this class */
+.lightningBtnSecondary {
+    --sds-c-button-outline-brand-color-background: #fff;
+    --sds-c-button-outline-brand-color-background-active: #fff;
+    --sds-c-button-outline-brand-color-background-hover: var(--hoverTextLinkColor);
+    --slds-c-button-brand-color-border: var(--themePrimaryColor);
+    --slds-c-button-brand-color-border-hover: var(--hoverColorBlue);
+}
+
+/* destructive lightning button */
+.lightningBtnDestructive {
+    /* --sds-c-button-outline-brand-color-background: #fff;
+    --sds-c-button-outline-brand-color-background-active: #fff;
+    --sds-c-button-outline-brand-color-background-hover: var(--hoverTextLinkColor);
+    --slds-c-button-brand-color-border: var(--themePrimaryColor);
+    --slds-c-button-brand-color-border-hover: var(--hoverColorBlue); */
+
+    --sds-c-button-text-destructive-color-background: #fff;    
+    --sds-c-button-text-destructive-color-background-active: #fff;
+    --sds-c-button-text-destructive-color-background-hover: var(--redL1);
+    --sds-c-button-text-destructive-color-border: var(--red);
+    --sds-c-button-text-destructive-color-border-hover: var(--redD1);
+    --sds-c-button-text-destructive-text-color: var(--red);
+    --sds-c-button-text-destructive-text-color-active: var(--redD1);
+    --sds-c-button-text-destructive-text-color-hover: var(--redD1);
+}
+
+/* secondary lightning buttons should get this class */
+.lightningBtnWarning {
+    --sds-c-button-text-destructive-color-background: #fff;    
+    --sds-c-button-text-destructive-color-background-active: #fff;
+    --sds-c-button-text-destructive-color-background-hover: var(--amberL1);
+    --sds-c-button-text-destructive-color-border: var(--amber);
+    --sds-c-button-text-destructive-color-border-hover: var(--amberD1);
+    --sds-c-button-text-destructive-text-color: var(--amber);
+    --sds-c-button-text-destructive-text-color-active: var(--amberD1);
+    --sds-c-button-text-destructive-text-color-hover: var(--amberD1);
+}
+
+
+
+/* 
+    no need for lightningBtnPrimary class. global override used so buttons 
+    created in Builder will also get the styling 
+
+    override in header:
+
+    :root {
+        --dxp-s-button-color-contrast: #fff;
+    }
+*/
+
+.lightningBtnPrimary {
+    --sds-c-button-brand-color-background: var(--themePrimaryColor);
+    --sds-c-button-brand-color-background-active: var(--themePrimaryColor);
+    --sds-c-button-brand-color-background-hover: var(--hoverColorBlue);
+    --slds-c-button-brand-color-border: var(--themePrimaryColor);
+    --slds-c-button-brand-color-border-hover: var(--hoverColorBlue);
+}
+
+/* ===================== */
+
+/* 
+    <div class="navButton">
+        <span>Home</span>
+        <img class="caretDown" src={caretImg}/>
+    </div>
+*/
+
+.navButton {
+    background: var(--bgPrimaryColor);
+    padding: 8px 12px;
+    height: fit-content;
+    cursor: pointer;
+    color: var(--textPrimaryColor);
+    border-radius: var(--borderRadiusSmall);
+    font-size: var(--textPrimarySize);
+    font-weight: var(--bold);
+    transition: var(--transitionStd);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 8px;
+}
+
+
+.navButton:hover {
+    background: var(--hoverColorGrey);
+}
+
+.navIcon {
+    margin-left: 8px;
+}
+
+.activeTopNav {
+    background: var(--hoverColorGrey);
+}
+
+@media (width <= 800px) {
+
+    .navButton {
+        width: 100%;
+        border-bottom: 1px solid #a9a9a9;
+        justify-content: space-between;
+        border-radius: 0;
+        padding: 10px 20px;
+        margin: 0;
+    }
+
+}
+
+/* ===================== */
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: var(--overlayOpacity);
+    z-index: 99;
+}
+
+/* ==================== */
+
+/* <div class="customSearchInput">
+    <lightning-icon
+        size="xx-small"
+        icon-name='utility:search' 
+        class="searchIcon"
+        ></lightning-icon>
+    <input
+        name="enter-search"
+        type="text"
+        class="searchInput"
+        placeholder="Search"
+    />
+    <lightning-icon
+        size="xx-small"
+        icon-name='utility:close' 
+        class="clearSearch"
+        ></lightning-icon>
+</div> */
+
+
+.customSearchInput {
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.customSearchInput input {
+    width: 100%;
+    border-radius: var(--borderRadiusSmall);
+    padding: 5px 30px;
+    border: 1px solid var(--textPrimaryColor);
+}
+
+.customSearchInput input:focus {
+    border: 1px solid transparent;
+    outline: 1px solid var(--themePrimaryColor);
+}
+
+.customSearchInput .searchIcon {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    /* z-index: 1; */
+}
+.customSearchInput .clearSearch {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    /* z-index: 1; */
+}
+
+/* ==================== */
+
+/* 
+<div class="navigationBackButton" onclick={showMenuFn}>
+    <lightning-icon 
+        size="xx-small"
+        icon-name='utility:chevronleft' 
+        class="navigationBackIcon"
+        ></lightning-icon>
+    <span>Back to Main menu</span>
+</div>
+ */
+
+
+.navigationBackButton {
+    display: none;
+}
+
+.navigationBackButton span {
+    margin-left: 10px;
+    font-size: var(--textPrimarySize);
+    color: var(--textLinkColor);
+}
+
+@media (width <= 800px) {
+
+    .navigationBackButton {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+
+    .navigationBackButton .navigationBackIcon {
+        --slds-c-icon-color-foreground-default: var(--textLinkColor);
+    }
+}
+
+
+.spinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.modalOverlay {
+    position: fixed;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+  
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow-y:scroll;
+    overflow-x:hidden;
+  
+    background: rgba(0,0,0,.1);
+}

@@ -1,0 +1,50 @@
+@import "c/sharedCss";
+
+.header {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #000000;
+    position: relative;
+}
+
+.banner {
+    height: 32px;
+    padding: 4px 8px;
+    width: fit-content;
+    margin-left: 48px;
+    background: var(--yellow);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+    .banner span {
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+.searchContainer {
+    width: 300px;
+    margin-right: 48px;
+    position: relative;
+    top: -4px;
+}
+
+    .searchInput {
+        width: 100%;
+    }
+
+
+
+@media (width <= 540px) {
+
+    .banner {
+        margin-left: 8px;
+    }
+
+    .searchContainer {
+        margin-right: 8px;
+        width: 250px;
+    }
+}
