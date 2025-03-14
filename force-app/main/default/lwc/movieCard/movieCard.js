@@ -21,7 +21,12 @@ export default class MovieCard extends LightningElement {
     }
 
     sendMovieDetailsFn(){
-        console.log('>>>>>', JSON.stringify(this.movieObj,null,2));
+
+        let detail = {
+            movieId: this.movieObj.id
+        }
+
+        this.dispatchEvent(new CustomEvent('gotomoviedetail', {bubbles: true, composed: true, detail}));
     }
 
     renderedCallback(){
