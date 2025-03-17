@@ -2,11 +2,10 @@
 
 .movie-card {
     flex-shrink: 0;
-    height: 25rem;
-    width: 12.5rem;
+    width: 150px;
+    height: fit-content;
     border-radius: 5px;
     margin: 0 1rem;
-    overflow: hidden;
     cursor: pointer;
     transition: all .3s;
     position: relative;
@@ -18,33 +17,42 @@
 
 .img-wrapper {
     width: 100%;
-    height: 18.75rem;
+    height: 220px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     overflow: hidden;
 }
 
 img {
-    height: 18.75rem;
+    height: 220px;
+    width: 100%;
 }
 
 .movie-info {
-    padding: .25rem;
+    padding: 3px 5px;
 }
 .movie-title {
     font-weight: 700;
+    font-size: 14px;
+}
+.movie-date {
+    font-size: 14px;
 }
 
 .score {
     position: absolute;
     display: inline-block;
-    bottom: .5rem;
-    right: .5rem;
+    top: 180px;
+    right: 5px;
     border: 2px solid #232323;
     border-radius: 100%;
-    padding: .25rem;
-    font-weight: 700;
-    width: 36px;
-    height: 36px;
+    padding: 3px;
+    width: 32px;
+    height: 32px;
     text-align: center;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .color-red {

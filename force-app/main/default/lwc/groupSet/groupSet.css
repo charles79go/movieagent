@@ -4,9 +4,10 @@
     background-color: #f9f9f9;
 }
 
-.movie-cards-container {
+.cards-container {
     display: flex;
-    height: 28rem;
+    height: fit-content;
+    padding: 10px 0;
     width: 100%;
     overflow-x: auto;
 }
@@ -20,20 +21,20 @@
 }
 
 
-.movie-cards-container::-webkit-scrollbar {
+.cards-container::-webkit-scrollbar {
     height: 10px;                          
 }
-.movie-cards-container::-webkit-scrollbar-track {
+.cards-container::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(245, 197, 24,0.3); 
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
-.movie-cards-container::-webkit-scrollbar-thumb {
+.cards-container::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background: #efecec;
     -webkit-box-shadow: inset 0 0 6px rgba(245, 197, 24,.5); 
 }
-.movie-cards-container::-webkit-scrollbar-thumb:horizontal:hover {
+.cards-container::-webkit-scrollbar-thumb:horizontal:hover {
     background: #b0afaf;
 }
