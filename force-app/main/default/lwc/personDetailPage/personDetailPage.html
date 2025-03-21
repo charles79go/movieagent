@@ -2,7 +2,12 @@
     <div class="mainImageBanner">
         <template lwc:if={isBackdropReady}>
 
-            <div class="backdropFiller"></div>
+            <template lwc:if={showBackdropImage}>
+                <img class="image" src={backdropImage} alt="Poster Not Available">
+            </template>
+            <template lwc:else >
+                <div class="backdropFiller"></div>
+            </template>
 
             <div class="infoContainer">
                 <div class="info">

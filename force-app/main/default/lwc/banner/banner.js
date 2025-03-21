@@ -1,4 +1,5 @@
 import { LightningElement, api } from 'lwc';
+import util from 'c/util';
 
 export default class Banner extends LightningElement {
 
@@ -18,13 +19,9 @@ export default class Banner extends LightningElement {
         results = results.results;
 
         while(!this.backdropImage?.endsWith('.jpg')) {
-            let movieData = results[this.getRandomInt(results.length)];
+            let movieData = results[util.getRandomInt(results.length)];
             this.backdropImage = `https://image.tmdb.org/t/p/original${movieData?.backdrop_path}`;
         }
         this.isBackdropReady = true;
-    }
-
-    getRandomInt(max) {
-        return Math.floor(Math.random() * max);
     }
 }

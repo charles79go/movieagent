@@ -17,6 +17,9 @@ export default class PersonDetailPage extends LightningElement {
     imageBaseUrl = 'https://image.tmdb.org/t/p/original';
     birthday;
 
+    backdropImage;
+    showBackdropImage = false;
+
 
     @wire(CurrentPageReference)
     currentPageRef;
@@ -47,6 +50,20 @@ export default class PersonDetailPage extends LightningElement {
         })
 
         this.movieArrReady = true;
+
+        let count = 0;
+        let exitNow = false;
+        while(!this.backdropImage?.endsWith('.jpg') || exitNow) {
+            let movieData = this.movieArr[util.getRandomInt(this.movieArr.length)];
+            this.backdropImage = `https://image.tmdb.org/t/p/original${movieData?.backdrop_path}`;
+
+            count++;
+            if(count >= this.movieArr.length) {
+                exitNow = true;
+            }
+        }
+
+        this.showBackdropImage = this.backdropImage?.endsWith('.jpg');
 
         if(this.personDetails?.profile_path?.endsWith('.jpg')) {
             this.posterImage = `${this.imageBaseUrl}${this.personDetails?.profile_path}`;

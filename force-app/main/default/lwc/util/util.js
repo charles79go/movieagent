@@ -21,4 +21,8 @@ const displayDate = (dateString) => {
     return `${monthList[Number(month) - 1]} ${date}, ${year}`;
 };
 
-export default { displayDate };
+const getRandomInt = (max) => {
+    return Math.floor(Math.random() * max);
+}
+
+export default { displayDate, getRandomInt};
