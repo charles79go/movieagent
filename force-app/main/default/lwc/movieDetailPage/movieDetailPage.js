@@ -17,6 +17,8 @@ export default class MovieDetailPage extends LightningElement {
     posterImage;
     showTrailerSet = false;
     showTrailer = false;
+    showImage = false;
+    showBackdropImage = false;
     trailerUrl;
     
     imageBaseUrl = 'https://image.tmdb.org/t/p/original';
@@ -59,9 +61,21 @@ export default class MovieDetailPage extends LightningElement {
 
         this.castArr = this.castArr.slice(0, 15);
 
-        this.backdropImage = `${this.imageBaseUrl}${this.movieDetails?.backdrop_path}`;
-        this.posterImage = `${this.imageBaseUrl}${this.movieDetails?.poster_path}`;
 
+
+        if(this.movieObj?.backdrop_path?.endsWith('.jpg')) {
+            this.backdropImage = `${this.imageBaseUrl}${this.movieDetails?.backdrop_path}`;
+            this.showBackdropImage = true;
+        } else {
+            this.showBackdropImage = false;
+        }
+
+        if(this.movieObj?.poster_path?.endsWith('.jpg')) {
+            this.posterImage = `${this.imageBaseUrl}${this.movieDetails?.poster_path}`;
+            this.showImage = true;
+        } else {
+            this.showImage = false;
+        }
 
         this.showTrailerSet = this.trailerArr.length;
         this.isBackdropReady = true;

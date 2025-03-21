@@ -1,7 +1,12 @@
 <template>
     <div class="personCard">
         <div class="imageContainer">
-            <img src={image}>
+            <template lwc:if={showImage}>
+                <img src={image} alt="Poster Not Available">
+            </template>
+            <template lwc:else >
+                <div class="imageFiller"></div>
+            </template>
         </div>
         <div class="name">
             <span>{name}</span>

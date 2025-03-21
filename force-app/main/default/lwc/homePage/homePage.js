@@ -1,8 +1,7 @@
 import { LightningElement } from 'lwc';
 import tmdbApiKey from "@salesforce/label/c.tmdbApiKey";
-import { NavigationMixin } from "lightning/navigation";
 
-export default class HomePage extends NavigationMixin(LightningElement) {
+export default class HomePage extends LightningElement {
     tmdbApiKey = tmdbApiKey;
 
     trendingUrl;
@@ -13,19 +12,6 @@ export default class HomePage extends NavigationMixin(LightningElement) {
         this.trendingUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${this.tmdbApiKey}&language=en-USinclude_adult=false&certification_country=US`;
         this.actionUrl = this.getGenreUrl(28);
         this.animationUrl = this.getGenreUrl(16);
-    }
-
-    gotoMovieDetailFn(event) {
-
-        this[NavigationMixin.Navigate]({
-            type: 'comm__namedPage',
-            attributes: {
-                name: 'MovieDetail__c',
-            },
-            state: {
-                movieid: event.detail.movieId,
-            },
-        });
     }
 
     getGenreUrl(genre) {

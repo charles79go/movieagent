@@ -1,15 +1,15 @@
 import { LightningElement, api } from 'lwc';
 import util from 'c/util';
+import { NavigationMixin } from "lightning/navigation";
 
-export default class MovieCard extends LightningElement {
+
+export default class MovieCard extends NavigationMixin(LightningElement) {
     @api imageBaseUrl;
     @api movieObj;
 
     rendered = false;
-
-    get posterImageSource(){
-        return this.imageBaseUrl + this.movieObj.poster_path;
-    }
+    showImage = false;
+    posterImageSource;
 
     get releaseDate() {
         return util.displayDate(this.movieObj.release_date);
@@ -20,13 +20,26 @@ export default class MovieCard extends LightningElement {
         return score === 10 ? 10 : score.toFixed(1);
     }
 
+    connectedCallback() {
+        if(this.movieObj?.poster_path.endsWith('.jpg')) {
+            this.posterImageSource = this.imageBaseUrl + this.movieObj.poster_path;
+            this.showImage = true;
+        } else {
+            this.showImage = false;
+        }
+    }
+
     sendMovieDetailsFn(){
 
-        let detail = {
-            movieId: this.movieObj.id
-        }
-
-        this.dispatchEvent(new CustomEvent('gotomoviedetail', {bubbles: true, composed: true, detail}));
+        this[NavigationMixin.Navigate]({
+            type: 'comm__namedPage',
+            attributes: {
+                name: 'MovieDetail__c',
+            },
+            state: {
+                movieid: this.movieObj.id,
+            },
+        });
     }
 
     renderedCallback(){

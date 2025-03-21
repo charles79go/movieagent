@@ -6,9 +6,17 @@ export default class PersonCard extends LightningElement {
     @api imageBaseUrl;
     image;
     name;
+    showImage = false;
 
     connectedCallback() {
-        this.image = `${this.imageBaseUrl}${this.personObj.profile_path}`;
+
+        if(this.personObj?.profile_path?.endsWith('.jpg')) {
+            this.image  = this.imageBaseUrl + this.personObj.profile_path;
+            this.showImage = true;
+        } else {
+            this.showImage = false;
+        }
+
         this.name = this.personObj.name;
     }
 

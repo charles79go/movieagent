@@ -1,7 +1,7 @@
 <template>
     <c-header tmdb-api-key={tmdbApiKey}></c-header>
     <c-banner tmdb-api-key={tmdbApiKey}></c-banner>
-    <div class="groupContainer" ongotomoviedetail={gotoMovieDetailFn}>
+    <div class="groupContainer">
         <c-group-set group-title="Trending Movies" url={trendingUrl}></c-group-set>
         <c-group-set group-title="Action" url={actionUrl}></c-group-set>
         <c-group-set group-title="Animation" url={animationUrl} ></c-group-set>

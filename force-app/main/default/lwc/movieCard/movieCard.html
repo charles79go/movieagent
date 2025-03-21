@@ -1,7 +1,12 @@
 <template>
     <div class="movie-card" onclick={sendMovieDetailsFn}>
         <div class="img-wrapper">
-            <img src={posterImageSource} alt="Poster Not Available">
+            <template lwc:if={showImage}>
+                <img src={posterImageSource} alt="Poster Not Available">
+            </template>
+            <template lwc:else >
+                <div class="imageFiller"></div>
+            </template>
         </div>
         <div class="movie-info">
             <div class="movie-title">{movieObj.title}</div>
