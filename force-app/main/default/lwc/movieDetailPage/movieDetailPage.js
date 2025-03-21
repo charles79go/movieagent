@@ -61,16 +61,14 @@ export default class MovieDetailPage extends LightningElement {
 
         this.castArr = this.castArr.slice(0, 15);
 
-
-
-        if(this.movieObj?.backdrop_path?.endsWith('.jpg')) {
+        if(this.movieDetails?.backdrop_path?.endsWith('.jpg')) {
             this.backdropImage = `${this.imageBaseUrl}${this.movieDetails?.backdrop_path}`;
             this.showBackdropImage = true;
         } else {
             this.showBackdropImage = false;
         }
 
-        if(this.movieObj?.poster_path?.endsWith('.jpg')) {
+        if(this.movieDetails?.poster_path?.endsWith('.jpg')) {
             this.posterImage = `${this.imageBaseUrl}${this.movieDetails?.poster_path}`;
             this.showImage = true;
         } else {
