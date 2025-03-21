@@ -54,10 +54,10 @@ export default class MovieDetailPage extends LightningElement {
         let response = await fetch(url);
         this.movieDetails = await response.json();
 
-        console.log('>>> movie details', JSON.stringify(this.movieDetails,null,2));
-
         this.trailerArr = this.movieDetails.videos.results.filter(video => video.type === 'Trailer');
         this.castArr = this.movieDetails.casts.cast.filter(person => person.known_for_department === 'Acting');
+
+        this.castArr = this.castArr.slice(0, 15);
 
         this.backdropImage = `${this.imageBaseUrl}${this.movieDetails?.backdrop_path}`;
         this.posterImage = `${this.imageBaseUrl}${this.movieDetails?.poster_path}`;
@@ -65,12 +65,7 @@ export default class MovieDetailPage extends LightningElement {
 
         this.showTrailerSet = this.trailerArr.length;
         this.isBackdropReady = true;
-        console.log('>>> cast', JSON.stringify(this.castArr,null,2));
-        // console.log('>>> trailer', JSON.stringify(this.trailerArr,null,2));
 
-
-        // https://www.youtube.com/watch?v=lMXh6vjiZrI  trailer images
-        // https://i.ytimg.com/vi/lMXh6vjiZrI/hqdefault.jpg   trailers
     }
 
     playTrailerFn(e) {

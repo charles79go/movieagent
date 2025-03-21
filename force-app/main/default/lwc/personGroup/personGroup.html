@@ -1,0 +1,16 @@
+<template>
+    <div class="group-set slds-m-top_large">
+
+        <div class="slds-text-heading_large slds-m-bottom_medium">{groupTitle}</div>
+
+        <div class="cards-container">
+            <template for:each={castArr} for:item="cast">
+                <c-person-card key={cast.id} 
+                    person-obj={cast}
+                    image-base-url={imageBaseUrl}
+                    ></c-person-card>
+            </template>
+        </div>
+        
+    </div>
+</template>

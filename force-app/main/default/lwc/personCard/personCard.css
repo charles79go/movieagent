@@ -1,0 +1,39 @@
+@import 'c/sharedCss';
+
+.personCard {
+    flex-shrink: 0;
+    width: 150px;
+    height: fit-content;
+    border-radius: 5px;
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: all .3s;
+    position: relative;
+    background-color: #f4f4f4;
+}
+
+.personCard:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 220px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+}
+
+img {
+    height: 220px;
+    width: 100%;
+}
+
+.name {
+    padding: 3px 5px;
+}
+
+.name span {
+    font-weight: 700;
+    font-size: 14px;
+}

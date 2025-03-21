@@ -1,0 +1,32 @@
+@import "c/sharedCss";
+
+.group-set {
+    background-color: #f9f9f9;
+}
+
+.cards-container {
+    display: flex;
+    height: fit-content;
+    padding: 10px 0;
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+.cards-container::-webkit-scrollbar {
+    height: 10px;                          
+}
+.cards-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+.cards-container::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #efecec;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.5); 
+}
+.cards-container::-webkit-scrollbar-thumb:horizontal:hover {
+    background: #b0afaf;
+}
