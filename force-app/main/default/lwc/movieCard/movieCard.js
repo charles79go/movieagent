@@ -21,7 +21,7 @@ export default class MovieCard extends NavigationMixin(LightningElement) {
     }
 
     connectedCallback() {
-        if(this.movieObj?.poster_path.endsWith('.jpg')) {
+        if(this.movieObj?.poster_path?.endsWith('.jpg')) {
             this.posterImageSource = this.imageBaseUrl + this.movieObj.poster_path;
             this.showImage = true;
         } else {

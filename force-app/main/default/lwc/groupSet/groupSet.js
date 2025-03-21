@@ -4,12 +4,14 @@ export default class GroupSet extends LightningElement {
 
     @api groupTitle;
     @api url;
+    @api movieArr = [];
 
     imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
     movieList = [];
 
     connectedCallback() {
-        this.getMovies(this.genreNumber);
+        if(this.url) this.getMovies();
+        else this.movieList = this.movieArr;
     }
 
     async getMovies() {

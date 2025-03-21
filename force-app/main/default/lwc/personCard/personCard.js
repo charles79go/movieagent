@@ -1,6 +1,7 @@
 import { LightningElement, api} from 'lwc';
+import { NavigationMixin } from "lightning/navigation";
 
-export default class PersonCard extends LightningElement {
+export default class PersonCard extends NavigationMixin(LightningElement) {
 
     @api personObj;
     @api imageBaseUrl;
@@ -18,6 +19,19 @@ export default class PersonCard extends LightningElement {
         }
 
         this.name = this.personObj.name;
+    }
+
+    sendPersonDetailsFn(){
+
+        this[NavigationMixin.Navigate]({
+            type: 'comm__namedPage',
+            attributes: {
+                name: 'PersonDetail__c',
+            },
+            state: {
+                personid: this.personObj.id,
+            },
+        });
     }
 
 }

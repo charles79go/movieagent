@@ -1,0 +1,35 @@
+<template>
+    <div class="mainImageBanner">
+        <template lwc:if={isBackdropReady}>
+
+            <div class="backdropFiller"></div>
+
+            <div class="infoContainer">
+                <div class="info">
+                    <div class="imageContainer">
+
+                        <template lwc:if={showImage}>
+                            <img src={posterImage} alt="Poster Not Available">
+                        </template>
+                        <template lwc:else >
+                            <div class="imageFiller"></div>
+                        </template>
+
+                    </div>
+                    <div class="movieInfo">
+                        <div class="title">{personDetails.name}</div>
+                        <div class="birthday">{birthday}</div>
+                        <div class="overview">{personDetails.biography}</div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <div class="groupContainer">
+        <template lwc:if={movieArrReady}>
+            <c-group-set group-title="Known For" movie-arr={movieArr}></c-group-set>
+        </template>
+    </div>
+
+</template>
