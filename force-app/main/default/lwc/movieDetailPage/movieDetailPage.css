@@ -74,8 +74,69 @@
             margin-top: 24px;
             font-size: 20px;
             margin-bottom: 18px;
+            overflow-y: auto;
+            max-height: 220px;
+            padding-right: 8px;
         }
+        
+        .overview::-webkit-scrollbar {
+            width: 10px;                          
+        }
+        .overview::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+        .overview::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: #efecec;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.5); 
+        }
+        .overview::-webkit-scrollbar-thumb:horizontal:hover {
+            background: #b0afaf;
+        }
+
 
 .groupContainer {
     margin: 0 24px;
+}
+
+@media (width < 770px) {
+
+    .info {
+        height: 90%;
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 16px;
+    }
+
+    .imageContainer {
+        height: 180px;
+        width: 120px;
+        min-width: 120px;
+    }
+
+    .movieInfo {
+        margin-left: 0px;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .relaseDate,
+    .genre,
+    .classification {
+        display: none;
+    }
+    
+    .overview {
+        margin-top: 16px;
+        font-size: 16px;
+        max-height: 120px;
+    }
 }
