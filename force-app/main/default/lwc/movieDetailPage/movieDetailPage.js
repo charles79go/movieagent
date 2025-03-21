@@ -51,33 +51,37 @@ export default class MovieDetailPage extends LightningElement {
     }
 
     async getMovieDetail() {
-        let url = `https://api.themoviedb.org/3/movie/${this.movieId}?api_key=${this.tmdbApiKey}&language=en-US&append_to_response=release_dates,videos,images,casts`;
 
-        let response = await fetch(url);
-        this.movieDetails = await response.json();
+        try {
+            let url = `https://api.themoviedb.org/3/movie/${this.movieId}?api_key=${this.tmdbApiKey}&language=en-US&append_to_response=release_dates,videos,images,casts`;
 
-        this.trailerArr = this.movieDetails.videos.results.filter(video => video.type === 'Trailer');
-        this.castArr = this.movieDetails.casts.cast.filter(person => person.known_for_department === 'Acting');
-
-        this.castArr = this.castArr.slice(0, 15);
-
-        if(this.movieDetails?.backdrop_path?.endsWith('.jpg')) {
-            this.backdropImage = `${this.imageBaseUrl}${this.movieDetails?.backdrop_path}`;
-            this.showBackdropImage = true;
-        } else {
-            this.showBackdropImage = false;
+            let response = await fetch(url);
+            this.movieDetails = await response.json();
+    
+            this.trailerArr = this.movieDetails.videos.results.filter(video => video.type === 'Trailer');
+            this.castArr = this.movieDetails.casts.cast.filter(person => person.known_for_department === 'Acting');
+    
+            this.castArr = this.castArr.slice(0, 15);
+    
+            if(this.movieDetails?.backdrop_path?.endsWith('.jpg')) {
+                this.backdropImage = `${this.imageBaseUrl}${this.movieDetails?.backdrop_path}`;
+                this.showBackdropImage = true;
+            } else {
+                this.showBackdropImage = false;
+            }
+    
+            if(this.movieDetails?.poster_path?.endsWith('.jpg')) {
+                this.posterImage = `${this.imageBaseUrl}${this.movieDetails?.poster_path}`;
+                this.showImage = true;
+            } else {
+                this.showImage = false;
+            }
+    
+            this.showTrailerSet = this.trailerArr.length;
+            this.isBackdropReady = true;
+        } catch(e) {
+            console.log('movieDetail error', e);
         }
-
-        if(this.movieDetails?.poster_path?.endsWith('.jpg')) {
-            this.posterImage = `${this.imageBaseUrl}${this.movieDetails?.poster_path}`;
-            this.showImage = true;
-        } else {
-            this.showImage = false;
-        }
-
-        this.showTrailerSet = this.trailerArr.length;
-        this.isBackdropReady = true;
-
     }
 
     playTrailerFn(e) {

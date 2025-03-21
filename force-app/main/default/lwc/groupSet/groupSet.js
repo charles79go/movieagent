@@ -15,10 +15,13 @@ export default class GroupSet extends LightningElement {
     }
 
     async getMovies() {
-        let response = await fetch(this.url);
-        let data = await response.json();
-        this.movieList = data.results;
 
+        try {
+            let response = await fetch(this.url);
+            let data = await response.json();
+            this.movieList = data.results;
+        } catch(e) {
+            console.log('groupSet error', e)
+        }
     }
-
 }

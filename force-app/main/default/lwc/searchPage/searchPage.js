@@ -51,7 +51,7 @@ export default class SearchPage extends LightningElement {
             // console.log(this.personSearchResults.results.length)
 
         } catch(e) {
-            console.log('error')
+            console.log('search page error', e);
         }
     }
 
