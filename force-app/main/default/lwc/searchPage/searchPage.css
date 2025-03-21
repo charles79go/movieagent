@@ -1,0 +1,29 @@
+@import 'c/sharedCss';
+
+.invisible {
+    visibility: hidden;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.searchMainContent {
+    padding: 32px 16px;
+    min-height: 550px;
+}
+
+.topText {
+    margin: 16px;
+    font-size: 20px;
+    
+}
+
+.searchCanvas {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchResultsContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
