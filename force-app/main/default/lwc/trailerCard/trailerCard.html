@@ -1,11 +1,17 @@
 <template>
     <div class="trailerCard">
-        <div class="imageContainer">
-            <img alt="Poster"/>
-            <div class="playButton"></div>
+
+        <img alt="Poster" src={trailerImage}/>
+
+        <div class="playBtn" onclick={playTrailerFn}>
+            <span class="slds-icon_container slds-icon-utility-play slds-current-color" title="Play trailer">
+                <svg class="slds-icon slds-icon_large slds-icon-text-default" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#play"></use>
+                </svg>
+                <span class="slds-assistive-text">Play Trailer</span>
+            </span>
         </div>
-        <div class="titleContainer">
-            <span></span>
-        </div>
+
+
     </div>
 </template>

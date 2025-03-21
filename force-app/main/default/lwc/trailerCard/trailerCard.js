@@ -1,3 +1,15 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
-export default class TrailerCard extends LightningElement {}
+export default class TrailerCard extends LightningElement {
+
+    @api trailerObj;
+    trailerImage;
+
+    connectedCallback() {
+        this.trailerImage = `https://i.ytimg.com/vi/${this.trailerObj.key}/hqdefault.jpg`;
+    }
+
+    playTrailerFn() {
+        console.log('play trailer');
+    }
+}

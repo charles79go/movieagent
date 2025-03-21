@@ -2,8 +2,6 @@
     <div class="mainImageBanner">
         <template lwc:if={isBackdropReady}>
 
-            <!-- <div class="overlay"></div> -->
-
             <img class="image" src={backdropImage}>
 
             <div class="infoContainer">
@@ -24,6 +22,12 @@
         </template>
     </div>
 
-    <div class="cast">hello</div>
-    <div class="trailers"></div>
+    <div class="groupContainer">
+        <div class="trailers" if:true={showTrailerSet}>
+            <c-trailer-group group-title="Trailers" trailer-arr={trailerArr}></c-trailer-group>
+        </div>
+        <div class="cast">hello</div>
+    </div>
+
+
 </template>

@@ -1,0 +1,15 @@
+<template>
+    <div class="group-set slds-m-top_large">
+
+        <div class="slds-text-heading_large slds-m-bottom_medium">{groupTitle}</div>
+
+        <div class="cards-container">
+            <template for:each={trailerArr} for:item="trailer">
+                <c-trailer-card key={trailer.key} 
+                    trailer-obj={trailer}
+                    ></c-trailer-card>
+            </template>
+        </div>
+        
+    </div>
+</template>
