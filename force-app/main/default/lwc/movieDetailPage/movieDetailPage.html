@@ -1,3 +1,29 @@
 <template>
-    <div>hello</div>
+    <div class="mainImageBanner">
+        <template lwc:if={isBackdropReady}>
+
+            <!-- <div class="overlay"></div> -->
+
+            <img class="image" src={backdropImage}>
+
+            <div class="infoContainer">
+                <div class="info">
+                    <div class="imageContainer">
+                        <img src={posterImage}>
+                    </div>
+                    <div class="movieInfo">
+                        <div class="title">{movieDetails.title}</div>
+                        <div>{releaseDate}</div>
+                        <div>{genre}</div>
+                        <div>{movieDetails.runtime} mins</div>
+                        <div class="classification">Rated: {certification}</div>
+                        <div class="overview">{movieDetails.overview}</div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <div class="cast">hello</div>
+    <div class="trailers"></div>
 </template>
