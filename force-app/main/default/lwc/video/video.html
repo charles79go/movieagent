@@ -1,0 +1,18 @@
+<template>
+    <div class="modal-page-container">
+        <div class="modal">   
+            <div class="back-button" >
+                <span onclick={exitTrailerFn} class="close-x slds-icon_container slds-icon-utility-close" title="Back">
+                    <svg class="slds-icon slds-icon-text-default" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Back</span>
+                </span>
+            </div>
+            <div class="iframe-container">
+                <iframe class="video" src={trailerPath} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+        </div>
+    </div>
+    
+</template>

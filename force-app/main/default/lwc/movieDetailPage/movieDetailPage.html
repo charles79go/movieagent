@@ -23,11 +23,15 @@
     </div>
 
     <div class="groupContainer">
-        <div class="trailers" if:true={showTrailerSet}>
+        <div class="trailers" if:true={showTrailerSet} onplaytrailer={playTrailerFn}>
             <c-trailer-group group-title="Trailers" trailer-arr={trailerArr}></c-trailer-group>
         </div>
         <div class="cast">hello</div>
     </div>
+
+    <template if:true={showTrailer}>
+        <c-video trailer-path={trailerUrl} onexittrailer={exitTrailerFn}></c-video>
+    </template>
 
 
 </template>

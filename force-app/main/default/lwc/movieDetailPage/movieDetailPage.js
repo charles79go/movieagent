@@ -16,6 +16,8 @@ export default class MovieDetailPage extends LightningElement {
     backdropImage;
     posterImage;
     showTrailerSet = false;
+    showTrailer = false;
+    trailerUrl;
     
     imageBaseUrl = 'https://image.tmdb.org/t/p/original';
 
@@ -69,6 +71,16 @@ export default class MovieDetailPage extends LightningElement {
 
         // https://www.youtube.com/watch?v=lMXh6vjiZrI  trailer images
         // https://i.ytimg.com/vi/lMXh6vjiZrI/hqdefault.jpg   trailers
+    }
+
+    playTrailerFn(e) {
+        this.trailerUrl = `https://www.youtube.com/embed/${e.detail}?&autoplay=1`;
+        this.showTrailer = true;
+    }
+
+    exitTrailerFn(){
+        this.showTrailer = false;
+        this.trailerUrl = null;
     }
 
 }

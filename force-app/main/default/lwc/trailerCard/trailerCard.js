@@ -9,7 +9,9 @@ export default class TrailerCard extends LightningElement {
         this.trailerImage = `https://i.ytimg.com/vi/${this.trailerObj.key}/hqdefault.jpg`;
     }
 
-    playTrailerFn() {
-        console.log('play trailer');
+    playTrailerFn(){
+
+        this.dispatchEvent(new CustomEvent('playtrailer',{detail: this.trailerObj.key, bubbles:true, composed:true}));
     }
+
 }
