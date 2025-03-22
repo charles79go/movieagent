@@ -30,6 +30,8 @@ export default class SearchPage extends LightningElement {
 
         try {
             let movieSearchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${this.tmdbApiKey}&language=en-US&query=${this.searchQuery}&page=1&include_adult=false`;
+            // let movieSearchUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${this.tmdbApiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&certification_country=US&sort_by=popularity.desc&vote_count.gte=10&with_keywords=${this.searchQuery}&append_to_response=videos`;
+
 
             let movieResponse = await fetch(movieSearchUrl);
             let movieData = await movieResponse.json();
@@ -42,13 +44,6 @@ export default class SearchPage extends LightningElement {
             this.personSearchResults = personData.results;
 
             this.dataReady = true;
-
-            // console.log('>>>>', JSON.stringify(this.movieSearchResults,null,2))
-            // console.log('>>>>', JSON.stringify(this.personSearchResults,null,2))
-
-
-            // console.log(this.movieSearchResults.results.length)
-            // console.log(this.personSearchResults.results.length)
 
         } catch(e) {
             console.log('search page error', e);
