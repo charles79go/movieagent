@@ -58,7 +58,11 @@ export default class MovieDetailPage extends LightningElement {
             let response = await fetch(url);
             this.movieDetails = await response.json();
     
-            this.trailerArr = this.movieDetails.videos.results.filter(video => video.type === 'Trailer');
+            this.trailerArr = this.movieDetails.videos.results.filter(video => {
+                return (video.type === 'Trailer' &&
+                        !video.name.toLowerCase().includes('restricted') &&
+                        !video.name.toLowerCase().includes('english subtitle'));
+            });
             this.castArr = this.movieDetails.casts.cast.filter(person => person.known_for_department === 'Acting');
     
             this.castArr = this.castArr.slice(0, 15);
@@ -76,7 +80,7 @@ export default class MovieDetailPage extends LightningElement {
             } else {
                 this.showImage = false;
             }
-    
+ 
             this.showTrailerSet = this.trailerArr.length;
             this.isBackdropReady = true;
         } catch(e) {
