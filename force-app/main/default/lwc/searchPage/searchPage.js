@@ -34,7 +34,9 @@ export default class SearchPage extends LightningElement {
 
             let movieResponse = await fetch(movieSearchUrl);
             let movieData = await movieResponse.json();
-            this.movieSearchResults = movieData.results;
+            this.movieSearchResults = movieData.results.filter(movie => {
+                return movie.poster_path?.endsWith('.jpg');
+            });
 
             let personSearchUrl = `https://api.themoviedb.org/3/search/person?api_key=${this.tmdbApiKey}&language=en-US&query=${this.searchQuery}&page=1&include_adult=false`;
 
