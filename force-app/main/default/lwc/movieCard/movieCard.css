@@ -45,6 +45,10 @@ img {
     font-size: 14px;
 }
 
+.invisible {
+    visibility: hidden;
+}
+
 .score {
     position: absolute;
     display: inline-block;

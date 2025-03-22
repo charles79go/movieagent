@@ -44,11 +44,13 @@ export default class MovieCard extends NavigationMixin(LightningElement) {
 
     renderedCallback(){
         if(this.rendered) return;
-        let scoreElem = this.template.querySelector('.score');
+        this.rendered = true;
         let voteAverage = Number(this.movieObj.vote_average);
+        let scoreElem = this.template.querySelector('.score');
         if(voteAverage < 6 ) scoreElem.classList.add('color-red');
         if(voteAverage >= 6 && voteAverage < 7.5) scoreElem.classList.add('color-orange');
         if(voteAverage >= 7.5) scoreElem.classList.add('color-green')
-        this.rendered = true;
+        if(voteAverage < 3) scoreElem.classList.add('invisible');
+
     }
 }
