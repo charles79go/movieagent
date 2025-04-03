@@ -21,7 +21,11 @@ export default class Header extends NavigationMixin(LightningElement) {
 
     goToSearchPageFn() {
 
+        this.query = this.query ? this.query?.trim() : '';
+
         if(this.query === '') return;
+
+        if(this.query.length < 3) return;
 
         let sendQuery = this.query.trim();
         this.query = '';
