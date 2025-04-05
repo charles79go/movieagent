@@ -42,21 +42,21 @@ public without sharing class SearchPeopleAction {
                 return new List<String>{responseBody};
             }
 
+            // System.debug(JSON.serializePretty(responseBody));
+
             PeopleSearchResponse personResp = (PeopleSearchResponse) JSON.deserialize(responseBody, PeopleSearchResponse.class);
-            List<PersonResultObj> filteredPopular = new List<PersonResultObj>();
+            // List<PersonResultObj> filteredPopular = new List<PersonResultObj>();
 
-            for(PersonResultObj pObj : personResp.results) {
-                if(pObj.popularity > 1) {
-                    filteredPopular.add(pObj);
-                }
-            }
+            // for(PersonResultObj pObj : personResp.results) {
+            //     if(pObj.popularity > 1) {
+            //         filteredPopular.add(pObj);
+            //     }
+            // }
 
-            personResp.results = filteredPopular;
+            // personResp.results = filteredPopular;
 
             // Sort the list using the OrderLineComparator
             personResp.results.sort(new PeopleSearchResultComparator());
-
-            System.debug(JSON.serializePretty(personResp));
 
             responseBody = JSON.serialize(personResp);
 
@@ -83,6 +83,13 @@ public without sharing class SearchPeopleAction {
         public Integer id;
         public String name;
         public Decimal popularity;
+        public List<MovieObj> known_for;
+    }
+
+    public class MovieObj {
+        public Integer id;
+        public String title;
+        public String overview;
     }
 }
 
