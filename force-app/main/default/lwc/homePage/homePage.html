@@ -1,13 +1,13 @@
 <template>
-    <c-header tmdb-api-key={tmdbApiKey}></c-header>
-    <c-banner tmdb-api-key={tmdbApiKey}></c-banner>
+    <c-header></c-header>
+    <c-banner></c-banner>
     <div class="groupContainer">
-        <c-group-set group-title="Trending Movies" url={trendingUrl}></c-group-set>
-        <c-group-set group-title="Family" url={familyUrl}></c-group-set>
-        <c-group-set group-title="Adventure" url={adventureUrl}></c-group-set>
-        <c-group-set group-title="Action" url={actionUrl}></c-group-set>
-        <c-group-set group-title="Animation" url={animationUrl} ></c-group-set>
-        <c-group-set group-title="Comedy" url={comedyUrl} ></c-group-set>
+        <c-group-set group-title="Trending Movies" genre="trending"></c-group-set>
+        <c-group-set group-title="Family" genre="10751"></c-group-set>
+        <c-group-set group-title="Adventure" genre="12"></c-group-set>
+        <c-group-set group-title="Action" genre="28"></c-group-set>
+        <c-group-set group-title="Animation" genre="16"></c-group-set>
+        <c-group-set group-title="Comedy" genre="35"></c-group-set>
     </div>
 
     <c-footer></c-footer>

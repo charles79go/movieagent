@@ -1,9 +1,9 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement } from 'lwc';
+import getBannerData from "@salesforce/apex/TmdbApiCtrl.getBannerData";
 import util from 'c/util';
 
 export default class Banner extends LightningElement {
 
-    @api tmdbApiKey;
     isBackdropReady = false;
 
     connectedCallback() {
@@ -14,9 +14,9 @@ export default class Banner extends LightningElement {
     async getPopularMovies() {
 
         try {
-            let url = `https://api.themoviedb.org/3/trending/movie/day?api_key=${this.tmdbApiKey}&language=en-USinclude_adult=false&certification_country=US`;
-            let response = await fetch(url);
-            let results = await response.json();
+            let response = await getBannerData();
+            let results = JSON.parse(response);
+
             results = results.results;
     
             let counter = 0;

@@ -1,8 +1,7 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement } from 'lwc';
 import { NavigationMixin } from "lightning/navigation";
 
 export default class Header extends NavigationMixin(LightningElement) {
-    @api tmdbApiKey;
 
     query = '';
 
