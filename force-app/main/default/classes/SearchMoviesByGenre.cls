@@ -63,6 +63,8 @@ public without sharing class SearchMoviesByGenre {
 
             MovieSearchResponse movieResp = (MovieSearchResponse) JSON.deserialize(responseBody, MovieSearchResponse.class);
 
+            movieResp.results = randomize(movieResp.results);
+
             responseBody = JSON.serialize(movieResp);
 
         } catch (Exception e) {
@@ -76,6 +78,23 @@ public without sharing class SearchMoviesByGenre {
 
     }
 
+    public static List<MovieResultObj> randomize(List<MovieResultObj> lst){
+        Integer currentIndex = lst.size();
+        MovieResultObj temporaryValue;
+        Integer randomIndex;
+        // While there remain elements to shuffle...
+        while (currentIndex != 0) {
+        // Pick a remaining element...
+          randomIndex = Integer.valueOf(Math.floor(Math.random() * currentIndex));
+          currentIndex -= 1;
+          // And swap it with the current element.
+          temporaryValue = lst[currentIndex];
+          lst[currentIndex] = lst[randomIndex];
+          lst[randomIndex] = temporaryValue;
+        }
+        return lst;
+      }
+
 
     public class MovieSearchResponse {
         public List<MovieResultObj> results;
@@ -85,6 +104,7 @@ public without sharing class SearchMoviesByGenre {
         public Decimal popularity;
         public String title;
         public Integer id;
+        public String overview;
         public String release_date;
         public List<String> genre_ids;
     }
