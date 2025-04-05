@@ -68,6 +68,38 @@ public without sharing class TmdbApiCtrl {
         }
     }
 
+    @AuraEnabled
+    public static string getMovieDetail(String movieId){
+        try {
+
+            String apiKey = System.Label.tmdbApiKey;
+
+            String url = 'https://api.themoviedb.org/3/movie/' + movieId + '?api_key=' + apiKey+ 
+                    '&language=en-US&append_to_response=release_dates,videos,images,casts';
+
+            return calloutFn(url);
+            
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    @AuraEnabled
+    public static string getPersonDetail(String personId){
+        try {
+
+            String apiKey = System.Label.tmdbApiKey;
+
+            String url = 'https://api.themoviedb.org/3/person/' + personId + '?api_key=' + apiKey+ 
+                    '&language=en-US&append_to_response=movie_credits';
+
+            return calloutFn(url);
+            
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
     public static string calloutFn(String url) {
         HttpRequest req = new HttpRequest();
         req.setEndpoint(url);

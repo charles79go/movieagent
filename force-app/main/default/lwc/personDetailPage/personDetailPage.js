@@ -1,11 +1,9 @@
-import { LightningElement, api, wire} from 'lwc';
-import tmdbApiKey from "@salesforce/label/c.tmdbApiKey";
+import { LightningElement, wire} from 'lwc';
+import getPersonDetail from "@salesforce/apex/TmdbApiCtrl.getPersonDetail";
 import { CurrentPageReference } from 'lightning/navigation';
 import util from 'c/util';
 
 export default class PersonDetailPage extends LightningElement {
-
-    tmdbApiKey = tmdbApiKey;
 
     personDetails;
     movieArr;
@@ -29,16 +27,15 @@ export default class PersonDetailPage extends LightningElement {
     }
 
     connectedCallback(){
-        this.getPersonDetail();
+        this.getDetails();
     }
 
-    async getPersonDetail() {
+    async getDetails() {
 
         try {
-            let url = `https://api.themoviedb.org/3/person/${this.personId}?api_key=${this.tmdbApiKey}&language=en-US&append_to_response=movie_credits`;
 
-            let response = await fetch(url);
-            this.personDetails = await response.json();
+            let response = await getPersonDetail({personId: this.personId});
+            this.personDetails = JSON.parse(response);
     
             this.birthday = util.displayDate(this.personDetails.birthday);
     

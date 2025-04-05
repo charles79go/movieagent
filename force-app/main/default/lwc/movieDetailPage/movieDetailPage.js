@@ -1,10 +1,9 @@
-import { LightningElement, api, wire} from 'lwc';
-import tmdbApiKey from "@salesforce/label/c.tmdbApiKey";
+import { LightningElement, wire} from 'lwc';
+import getMovieDetail from "@salesforce/apex/TmdbApiCtrl.getMovieDetail";
 import { CurrentPageReference } from 'lightning/navigation';
 import util from 'c/util';
 
 export default class MovieDetailPage extends LightningElement {
-    tmdbApiKey = tmdbApiKey;
 
     @wire(CurrentPageReference)
     currentPageRef;
@@ -53,10 +52,8 @@ export default class MovieDetailPage extends LightningElement {
     async getMovieDetail() {
 
         try {
-            let url = `https://api.themoviedb.org/3/movie/${this.movieId}?api_key=${this.tmdbApiKey}&language=en-US&append_to_response=release_dates,videos,images,casts`;
-
-            let response = await fetch(url);
-            this.movieDetails = await response.json();
+            let response = await getMovieDetail({movieId: this.movieId});
+            this.movieDetails = JSON.parse(response);
     
             this.trailerArr = this.movieDetails.videos.results.filter(video => {
                 return (video.type === 'Trailer' &&
