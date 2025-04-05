@@ -1,6 +1,6 @@
 public without sharing class TmdbApiCtrl {
 
-    @AuraEnabled
+    @AuraEnabled(cacheable=true)
     public static string getBannerData() {
         try {
 
@@ -15,7 +15,7 @@ public without sharing class TmdbApiCtrl {
         }
     }
 
-    @AuraEnabled
+    @AuraEnabled(cacheable=true)
     public static string getMoviesByGenre(String genre){
         try {
 
@@ -36,14 +36,16 @@ public without sharing class TmdbApiCtrl {
         }
     }
 
-    @AuraEnabled
+    @AuraEnabled(cacheable=true)
     public static string personSearch(String searchTerm){
         try {
 
             String apiKey = System.Label.tmdbApiKey;
 
+            String query = EncodingUtil.urlEncode(searchTerm, 'UTF-8');
+
             String url = 'https://api.themoviedb.org/3/search/person?api_key=' + apiKey + 
-                        '&language=en-US&query=' + searchTerm + '&page=1&include_adult=false';
+                        '&language=en-US&query=' + query + '&page=1&include_adult=false';
 
             return calloutFn(url);
             
@@ -52,14 +54,16 @@ public without sharing class TmdbApiCtrl {
         }
     }
 
-    @AuraEnabled
+    @AuraEnabled(cacheable=true)
     public static string movieSearch(String searchTerm){
         try {
 
             String apiKey = System.Label.tmdbApiKey;
 
+            String query = EncodingUtil.urlEncode(searchTerm, 'UTF-8');
+
             String url = 'https://api.themoviedb.org/3/search/movie?api_key=' + apiKey + 
-                        '&language=en-US&query=' + searchTerm + '&page=1&include_adult=false';
+                        '&language=en-US&query=' + query + '&page=1&include_adult=false';
 
             return calloutFn(url);
             
@@ -68,7 +72,7 @@ public without sharing class TmdbApiCtrl {
         }
     }
 
-    @AuraEnabled
+    @AuraEnabled(cacheable=true)
     public static string getMovieDetail(String movieId){
         try {
 
@@ -84,7 +88,7 @@ public without sharing class TmdbApiCtrl {
         }
     }
 
-    @AuraEnabled
+    @AuraEnabled(cacheable=true)
     public static string getPersonDetail(String personId){
         try {
 
