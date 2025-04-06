@@ -1,40 +1,43 @@
 <template>
-    <c-header></c-header>
 
-    <div class="searchMainContent" if:true={dataReady}>
-        <lightning-tabset>
-            <lightning-tab label="Top Movie Results"> 
-                <div class="searchCanvas">
-                    <div class="topText">Top movies search results for "{searchQuery}"</div>
-                    <div class="searchResultsContainer">
-                        <template for:each={movieSearchResults} for:item="movie">
-                            <c-movie-card key={movie.id} 
-                                image-base-url={imageBaseUrl}
-                                movie-obj={movie}
-                                ></c-movie-card>
-                        </template>
+    <div class="main">
+        <c-header></c-header>
+
+        <div class="searchMainContent" if:true={dataReady}>
+            <lightning-tabset>
+                <lightning-tab label="Top Movie Results"> 
+                    <div class="searchCanvas">
+                        <div class="topText">Top movies search results for "{searchQuery}"</div>
+                        <div class="searchResultsContainer">
+                            <template for:each={movieSearchResults} for:item="movie">
+                                <c-movie-card key={movie.id} 
+                                    image-base-url={imageBaseUrl}
+                                    movie-obj={movie}
+                                    ></c-movie-card>
+                            </template>
+                        </div>
                     </div>
-                </div>
-                
-            </lightning-tab>
+                    
+                </lightning-tab>
+        
+                <lightning-tab label="Top People Resulsts"> 
+                    <div class="searchCanvas">
+                        <div class="topText">Top people search results for "{searchQuery}"</div>
+                        <div class="searchResultsContainer">
+                            <template for:each={personSearchResults} for:item="cast">
+                                <c-person-card key={cast.id} 
+                                    person-obj={cast}
+                                    image-base-url={imageBaseUrl}
+                                    ></c-person-card>
+                            </template>
+                        </div>
+                    </div>
     
-            <lightning-tab label="Top People Resulsts"> 
-                <div class="searchCanvas">
-                    <div class="topText">Top people search results for "{searchQuery}"</div>
-                    <div class="searchResultsContainer">
-                        <template for:each={personSearchResults} for:item="cast">
-                            <c-person-card key={cast.id} 
-                                person-obj={cast}
-                                image-base-url={imageBaseUrl}
-                                ></c-person-card>
-                        </template>
-                    </div>
-                </div>
-
-            </lightning-tab>
-        </lightning-tabset>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+    
+        <c-footer></c-footer>
     </div>
 
-
-    <c-footer></c-footer>
 </template>

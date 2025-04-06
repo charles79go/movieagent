@@ -1,54 +1,56 @@
 <template>
-    <c-header></c-header>
+    <div class="main">
+        <c-header></c-header>
 
-    <div class="mainImageBanner">
-        <template lwc:if={isBackdropReady}>
-
-            <template lwc:if={showBackdropImage}>
-                <img class="image" src={backdropImage} alt="Poster Not Available">
-            </template>
-            <template lwc:else >
-                <div class="backdropFiller"></div>
-            </template>
-
-            <div class="infoContainer">
-                <div class="info">
-                    <div class="imageContainer">
-
-                        <template lwc:if={showImage}>
-                            <img src={posterImage} alt="Poster Not Available">
-                        </template>
-                        <template lwc:else >
-                            <div class="imageFiller"></div>
-                        </template>
-
-                    </div>
-                    <div class="movieInfo">
-                        <div class="title">{movieDetails.title}</div>
-                        <div class="releaseDate">{releaseDate}</div>
-                        <div class="genre">{genre}</div>
-                        <div class="mins">{movieDetails.runtime} mins</div>
-                        <div class="classification">Rated: {certification}</div>
-                        <div class="overview">{movieDetails.overview}</div>
+        <div class="mainImageBanner">
+            <template lwc:if={isBackdropReady}>
+    
+                <template lwc:if={showBackdropImage}>
+                    <img class="image" src={backdropImage} alt="Poster Not Available">
+                </template>
+                <template lwc:else >
+                    <div class="backdropFiller"></div>
+                </template>
+    
+                <div class="infoContainer">
+                    <div class="info">
+                        <div class="imageContainer">
+    
+                            <template lwc:if={showImage}>
+                                <img src={posterImage} alt="Poster Not Available">
+                            </template>
+                            <template lwc:else >
+                                <div class="imageFiller"></div>
+                            </template>
+    
+                        </div>
+                        <div class="movieInfo">
+                            <div class="title">{movieDetails.title}</div>
+                            <div class="releaseDate">{releaseDate}</div>
+                            <div class="genre">{genre}</div>
+                            <div class="mins">{movieDetails.runtime} mins</div>
+                            <div class="classification">Rated: {certification}</div>
+                            <div class="overview">{movieDetails.overview}</div>
+                        </div>
                     </div>
                 </div>
+            </template>
+        </div>
+    
+        <div class="groupContainer">
+            <div class="trailers" if:true={showTrailerSet} onplaytrailer={playTrailerFn}>
+                <c-trailer-group group-title="Trailers" trailer-arr={trailerArr}></c-trailer-group>
             </div>
+            <div class="cast">
+                <c-person-group group-title="Top Casts" cast-arr={castArr} image-base-url={imageBaseUrl}></c-person-group>
+            </div>
+        </div>
+    
+        <template if:true={showTrailer}>
+            <c-video trailer-path={trailerUrl} onexittrailer={exitTrailerFn}></c-video>
         </template>
+    
+        <c-footer></c-footer>
+    
     </div>
-
-    <div class="groupContainer">
-        <div class="trailers" if:true={showTrailerSet} onplaytrailer={playTrailerFn}>
-            <c-trailer-group group-title="Trailers" trailer-arr={trailerArr}></c-trailer-group>
-        </div>
-        <div class="cast">
-            <c-person-group group-title="Top Casts" cast-arr={castArr} image-base-url={imageBaseUrl}></c-person-group>
-        </div>
-    </div>
-
-    <template if:true={showTrailer}>
-        <c-video trailer-path={trailerUrl} onexittrailer={exitTrailerFn}></c-video>
-    </template>
-
-    <c-footer></c-footer>
-
 </template>

@@ -12,7 +12,8 @@
 .banner {
     height: 32px;
     padding: 4px 8px;
-    width: fit-content;
+    width: 138px;
+    flex-shrink: 0;
     margin-left: 24px;
     background: var(--yellow);
     border-radius: 2px;
@@ -42,6 +43,7 @@
 
     .banner {
         margin-left: 8px;
+        margin-right: 8px;
     }
 
     .searchContainer {

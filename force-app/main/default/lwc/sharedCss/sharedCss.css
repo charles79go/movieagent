@@ -82,6 +82,11 @@
 }
 
 
+.main {
+    max-width: 1800px;
+    margin: auto;
+}
+
 /* common components */
 /* buttons, cards, pills, toast messages */
 
