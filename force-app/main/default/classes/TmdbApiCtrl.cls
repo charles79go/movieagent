@@ -29,6 +29,16 @@ public without sharing class TmdbApiCtrl {
                     '&language=en-USinclude_adult=false&certification_country=US&sort_by=popularity.desc&vote_count.gte=10';
             }
 
+            if(genre == 'upcoming') {
+                String minDateFinal = Datetime.now().format('yyyy-MM-dd');
+                String maxDateFinal = Datetime.now().addMonths(5).format('yyyy-MM-dd');
+               
+                url = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey +
+                            '&language=en-US&sort_by=popularity.desc&include_adult=false' +
+                             '&certification_country=US&primary_release_date.gte=' + minDateFinal +
+                             '&primary_release_date.lte=' + maxDateFinal;
+            }
+
             return calloutFn(url);
             
         } catch (Exception e) {

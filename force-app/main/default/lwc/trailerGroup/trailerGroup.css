@@ -1,7 +1,7 @@
 @import "c/sharedCss";
 
 .group-set {
-    background-color: #f9f9f9;
+    background-color: transparent;
 }
 
 .cards-container {

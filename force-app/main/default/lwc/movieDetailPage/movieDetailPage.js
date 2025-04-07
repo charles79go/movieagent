@@ -54,12 +54,14 @@ export default class MovieDetailPage extends LightningElement {
         try {
             let response = await getMovieDetail({movieId: this.movieId});
             this.movieDetails = JSON.parse(response);
-    
+
             this.trailerArr = this.movieDetails.videos.results.filter(video => {
                 return (video.type === 'Trailer' &&
                         !video.name.toLowerCase().includes('restricted') &&
                         !video.name.toLowerCase().includes('english subtitle'));
             });
+
+            console.log('>>>>', JSON.stringify(this.trailerArr,null,2));
             this.castArr = this.movieDetails.casts.cast.filter(person => person.known_for_department === 'Acting');
     
             this.castArr = this.castArr.slice(0, 15);
