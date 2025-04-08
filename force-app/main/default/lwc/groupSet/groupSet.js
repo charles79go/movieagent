@@ -1,5 +1,5 @@
 import { LightningElement, api} from 'lwc';
-import getMoviesByGenre from "@salesforce/apex/TmdbApiCtrl.getMoviesByGenre";
+import getGroupSetDataRec from "@salesforce/apex/TmdbApiCtrl.getGroupSetDataRec";
 
 export default class GroupSet extends LightningElement {
 
@@ -18,7 +18,8 @@ export default class GroupSet extends LightningElement {
     async getMovies() {
 
         try {
-            let response = await getMoviesByGenre({genre: this.genre});
+            let response = await getGroupSetDataRec({name: this.groupTitle});
+            // console.log(JSON.stringify(data,null,2));});
             let data = JSON.parse(response);
             this.movieList = data.results;
         } catch(e) {

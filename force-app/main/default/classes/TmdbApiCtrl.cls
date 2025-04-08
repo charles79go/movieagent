@@ -114,6 +114,54 @@ public without sharing class TmdbApiCtrl {
         }
     }
 
+    @AuraEnabled(cacheable=true)
+    public static string getUpcomingTrailers(){
+        try {
+            TrailerList__c trailerRecord = [
+                SELECT Id, Payload__c, Name 
+                FROM TrailerList__c 
+                WHERE Name = 'UpcomingTrailers' 
+                LIMIT 1
+            ];
+
+            return trailerRecord.Payload__c;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static string getBannerDataRec(){
+        try {
+            TrailerList__c trailerRecord = [
+                SELECT Id, Payload__c, Name 
+                FROM TrailerList__c 
+                WHERE Name = 'BannerData' 
+                LIMIT 1
+            ];
+
+            return trailerRecord.Payload__c;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static string getGroupSetDataRec(String name){
+        try {
+            TrailerList__c trailerRecord = [
+                SELECT Id, Payload__c, Name 
+                FROM TrailerList__c 
+                WHERE Name = :name 
+                LIMIT 1
+            ];
+
+            return trailerRecord.Payload__c;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
     public static string calloutFn(String url) {
         HttpRequest req = new HttpRequest();
         req.setEndpoint(url);

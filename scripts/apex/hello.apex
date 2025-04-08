@@ -36,3 +36,27 @@ String maxDateFinal = Datetime.now().addMonths(5).format('yyyy-MM-dd');
 
 System.debug('===' + minDateFinal);
 System.debug('===' + maxDateFinal);
+
+
+
+GetTrailersSchedCtrl.getTrailers();
+GetTrailersSchedCtrl.getBannerData();
+GetTrailersSchedCtrl.getGenreData('trending', 'Trending Movies');
+GetTrailersSchedCtrl.getGenreData('28', 'Action');
+GetTrailersSchedCtrl.getGenreData('10751', 'Family');
+GetTrailersSchedCtrl.getGenreData('12', 'Adventure');
+GetTrailersSchedCtrl.getGenreData('16', 'Animation');
+
+
+
+<c-group-set group-title="Trending Movies" genre="trending"></c-group-set>
+<!-- <c-group-set group-title="Coming Soon" genre="upcoming"></c-group-set> -->
+<c-trailer-row-home-page></c-trailer-row-home-page>
+<c-group-set group-title="Action" genre="28"></c-group-set>
+<c-group-set group-title="Family" genre="10751"></c-group-set>
+<c-group-set group-title="Adventure" genre="12"></c-group-set>
+<c-group-set group-title="Animation" genre="16"></c-group-set>
+
+System.schedule('ScheduleGetTrailers :00', '0 0 * * * ?', new ScheduleGetTrailers());
+System.schedule('ScheduleGetBannerData :02', '0 2 * * * ?', new ScheduleGetBannerData());
+System.schedule('ScheduleGetBannerData :02', '0 2 * * * ?', new ScheduleGetBannerData());

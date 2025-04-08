@@ -1,5 +1,5 @@
 import { LightningElement } from 'lwc';
-import getBannerData from "@salesforce/apex/TmdbApiCtrl.getBannerData";
+import getBannerDataRec from "@salesforce/apex/TmdbApiCtrl.getBannerDataRec";
 import util from 'c/util';
 
 export default class Banner extends LightningElement {
@@ -14,7 +14,7 @@ export default class Banner extends LightningElement {
     async getPopularMovies() {
 
         try {
-            let response = await getBannerData();
+            let response = await getBannerDataRec();
             let results = JSON.parse(response);
 
             results = results.results;
