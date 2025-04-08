@@ -62,3 +62,5 @@ System.schedule('ScheduleGetTrailers :00', '0 0 * * * ?', new ScheduleGetTrailer
 System.schedule('ScheduleGetBannerData :10', '0 10 * * * ?', new ScheduleGetBannerData());
 
 System.schedule('ScheduleGetGenreLists :20', '0 20 * * * ?', new ScheduleGetGenreLists());
+
+System.schedule('ScheduleGetGenreLists :50', '0 50 * * * ?', new ScheduleGetGenreLists());
