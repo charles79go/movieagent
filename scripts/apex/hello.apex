@@ -58,7 +58,7 @@ GetTrailersSchedCtrl.getGenreData('16', 'Animation');
 <c-group-set group-title="Animation" genre="16"></c-group-set>
 
 System.schedule('ScheduleGetTrailers :00', '0 0 * * * ?', new ScheduleGetTrailers());
-System.schedule('ScheduleGetBannerData :02', '0 2 * * * ?', new ScheduleGetBannerData());
-System.schedule('ScheduleGetBannerData :02', '0 2 * * * ?', new ScheduleGetBannerData());
 
-System.schedule('ScheduleGetGenreLists :15', '0 15 * * * ?', new ScheduleGetGenreLists());
+System.schedule('ScheduleGetBannerData :10', '0 10 * * * ?', new ScheduleGetBannerData());
+
+System.schedule('ScheduleGetGenreLists :20', '0 20 * * * ?', new ScheduleGetGenreLists());

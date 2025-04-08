@@ -1,7 +1,7 @@
 global class ScheduleGetGenreLists implements Schedulable {
 
     // run every 1 hours
-    // System.schedule('ScheduleGetGenreLists :15', '0 15 * * * ?', new ScheduleGetGenreLists());
+    // System.schedule('ScheduleGetGenreLists :20', '0 20 * * * ?', new ScheduleGetGenreLists());
 
     global void execute(SchedulableContext SC) {
         GetTrailersSchedCtrl.getGenreData('trending', 'Trending Movies');

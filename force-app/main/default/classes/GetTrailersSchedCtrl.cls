@@ -62,6 +62,7 @@ public without sharing class GetTrailersSchedCtrl {
 
     }
 
+    @future(callout=true)
     public static void getGenreData(String genreId, String genreName) {
 
         String response = TmdbApiCtrl.getMoviesByGenre(genreId);
