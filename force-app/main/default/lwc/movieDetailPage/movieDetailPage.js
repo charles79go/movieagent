@@ -61,7 +61,6 @@ export default class MovieDetailPage extends LightningElement {
                         !video.name.toLowerCase().includes('english subtitle'));
             });
 
-            console.log('>>>>', JSON.stringify(this.trailerArr,null,2));
             this.castArr = this.movieDetails.casts.cast.filter(person => person.known_for_department === 'Acting');
     
             this.castArr = this.castArr.slice(0, 15);
